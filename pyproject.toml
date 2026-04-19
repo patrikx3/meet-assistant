@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "p3x-meet-assistant"
-version = "2026.4.117"
+version = "2026.4.120"
 description = "Real-time AI speech-to-text for meetings with GPT-4o Transcribe and GPU speaker diarization"
 readme = "README.md"
 requires-python = ">=3.10"
