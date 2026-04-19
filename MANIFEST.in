@@ -1,0 +1,35 @@
+# Include source files
+include README.md
+include LICENSE
+include pyproject.toml
+
+# Include the built frontend bundle (required at runtime)
+recursive-include meet_assistant/dist *
+
+# Defense-in-depth: never ship secrets or dev-only folders, even if a future
+# setuptools config change would otherwise pick them up.
+prune secure
+prune .claude
+prune .vscode
+prune .git
+prune agents
+prune venv
+prune node_modules
+prune sessions
+prune meet_assistant/src
+prune meet_assistant/__pycache__
+exclude .env
+exclude .env.example
+exclude AGENTS.md
+exclude CLAUDE.md
+exclude yarn.lock
+exclude package.json
+exclude package-lock.json
+exclude Gruntfile.js
+exclude vite.config.js
+exclude requirements.txt
+exclude requirements-cloud.txt
+exclude meet-assistant-web.py
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude .DS_Store

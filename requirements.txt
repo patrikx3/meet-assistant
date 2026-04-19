@@ -1,0 +1,21 @@
+# Meet Assistant - full install with GPU for speaker diarization
+# Install: ./venv/bin/pip install -r requirements.txt
+
+# Web server
+fastapi
+uvicorn
+websockets
+
+# .env loading (optional alternative to secure/ key files)
+python-dotenv
+
+# Audio capture (PulseAudio/PipeWire)
+SpeechRecognition
+PyAudio
+setuptools<81
+
+# Transcription engine (OpenAI GPT-4o Transcribe)
+openai
+
+# Speaker diarization (voice fingerprinting on GPU; CPU fallback works too)
+resemblyzer

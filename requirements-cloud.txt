@@ -1,0 +1,17 @@
+# Meet Assistant - cloud / no-GPU install (browser audio capture, no diarization)
+# Install: ./venv/bin/pip install -r requirements-cloud.txt
+#
+# No PyAudio/SpeechRecognition needed - audio captured in the browser via MIC/TAB buttons.
+# No resemblyzer (GPU diarization) - install separately if you want speaker labels:
+#   ./venv/bin/pip install resemblyzer
+
+# Web server
+fastapi
+uvicorn
+websockets
+
+# .env loading (optional alternative to secure/ key files)
+python-dotenv
+
+# Transcription engine (OpenAI GPT-4o Transcribe)
+openai

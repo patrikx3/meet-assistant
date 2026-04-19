@@ -1,0 +1,17 @@
+venv/
+node_modules/
+__pycache__/
+.env
+*.pyc
+.DS_Store
+sessions/
+
+# Frontend build output
+meet_assistant/dist/
+
+# Python build / publish artifacts
+dist/
+build/
+*.egg-info/
+*.whl
+*.tar.gz

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet Assistant</title>
+<link rel="icon" href="data:,">
+</head>
+<body>
+
+<header>
+ <div class="app-title">Meet Assistant</div>
+ <div class="ctrl-group">
+  <label class="field">
+   <span class="field-label">Language</span>
+   <select class="sel" id="langSelect"></select>
+  </label>
+  <button class="btn btn-sm" id="fontDown">A-</button>
+  <button class="btn btn-sm" id="fontUp">A+</button>
+  <button class="btn btn-sm" id="themeBtn"><i class="fas fa-moon"></i></button>
+  <span class="separator"></span>
+  <button class="btn" id="micCaptureBtn"><i class="fas fa-microphone"></i> MIC</button>
+  <button class="btn" id="tabCaptureBtn"><i class="fas fa-display"></i> TAB</button>
+  <span class="separator"></span>
+  <button class="btn" id="clearBtn"><i class="fas fa-trash-can"></i> Clear</button>
+  <button class="btn" id="exportBtn"><i class="fas fa-download"></i> Export</button>
+ </div>
+</header>
+
+<main>
+ <div class="panel-scroll" id="scrollAll"></div>
+</main>
+
+<footer>
+ <span class="dot" id="dot"></span>
+ <span id="statusText">Connecting...</span>
+ <span class="footer-spacer"></span>
+ <span id="engineLabel"></span>
+</footer>
+<button id="scrollBtn"><i class="fas fa-angles-down"></i> New messages</button>
+
+<script type="module" src="./main.js"></script>
+</body>
+</html>

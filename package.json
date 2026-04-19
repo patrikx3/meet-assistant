@@ -1,0 +1,48 @@
+{
+    "name": "p3x-meet-assistant",
+    "version": "2026.4.118",
+    "corifeus": {
+        "prefix": "p3x-",
+        "cdn": true,
+        "type": "p3x",
+        "code": "Meeting",
+        "icon": "fas fa-microphone",
+        "nodejs": "v24.14.1",
+        "opencollective": false,
+        "reponame": "meet-assistant",
+        "build": true
+    },
+    "license": "MIT",
+    "description": "🎙️🧠 Real-time AI speech-to-text for meetings with GPT-4o Transcribe and GPU speaker diarization",
+    "scripts": {
+        "test": "grunt",
+        "dev": "vite",
+        "build:web": "vite build",
+        "preview": "vite preview"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/patrikx3/meet-assistant.git"
+    },
+    "keywords": [
+        "gpt-4o",
+        "speech-to-text",
+        "meeting",
+        "transcription",
+        "diarization",
+        "accessibility"
+    ],
+    "author": "Patrik Laszlo <alabard@gmail.com>",
+    "homepage": "https://corifeus.com/meet-assistant",
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^7.2.0"
+    },
+    "devDependencies": {
+        "corifeus-builder": "^2026.4.143",
+        "grunt": "^1.6.1",
+        "vite": "^8.0.8"
+    },
+    "engines": {
+        "node": ">=12.13.0"
+    }
+}

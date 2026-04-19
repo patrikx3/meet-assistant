@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "p3x-meet-assistant"
+version = "2026.4.117"
+description = "Real-time AI speech-to-text for meetings with GPT-4o Transcribe and GPU speaker diarization"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Patrik Laszlo", email = "alabard@gmail.com" },
+]
+keywords = [
+    "gpt-4o",
+    "speech-to-text",
+    "transcription",
+    "meeting",
+    "diarization",
+    "accessibility",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Framework :: FastAPI",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Communications :: Conferencing",
+]
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "websockets",
+    "python-dotenv",
+    "openai",
+]
+
+[project.optional-dependencies]
+# Speaker diarization — voice fingerprinting. Works on CPU but fast only on CUDA.
+gpu = ["resemblyzer"]
+# Linux PulseAudio/PipeWire system-audio capture.
+linux-capture = ["SpeechRecognition", "PyAudio", "setuptools<81"]
+# Everything — for a full local workstation install.
+all = ["resemblyzer", "SpeechRecognition", "PyAudio", "setuptools<81"]
+
+[project.scripts]
+p3x-meet-assistant = "meet_assistant.cli:main"
+
+[project.urls]
+Homepage = "https://corifeus.com/meet-assistant"
+Repository = "https://github.com/patrikx3/meet-assistant"
+Issues = "https://github.com/patrikx3/meet-assistant/issues"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["meet_assistant*"]
+exclude = ["meet_assistant.src*"]
+
+[tool.setuptools.package-data]
+meet_assistant = [
+    "dist/**/*",
+    "dist/**/**/*",
+]
