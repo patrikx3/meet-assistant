@@ -1,19 +1,20 @@
 {
     "name": "p3x-meet-assistant",
-    "version": "2026.4.120",
+    "version": "2026.4.121",
     "corifeus": {
         "prefix": "p3x-",
         "cdn": true,
         "type": "p3x",
-        "code": "Meeting",
+        "code": "Transcribe",
         "icon": "fas fa-microphone",
         "nodejs": "v24.14.1",
         "opencollective": false,
         "reponame": "meet-assistant",
-        "build": true
+        "build": true,
+        "description-npm": "🎙️🧠 P3X Meet Assistant — live meeting transcription with OpenAI GPT-4o Transcribe, GPU speaker diarization, and 10-language support"
     },
     "license": "MIT",
-    "description": "🎙️🧠 Real-time AI speech-to-text for meetings with GPT-4o Transcribe and GPU speaker diarization",
+    "description": "🎙️🧠 P3X Meet Assistant — live meeting transcription with OpenAI GPT-4o Transcribe, GPU speaker diarization, and 10-language support",
     "scripts": {
         "test": "grunt",
         "dev": "vite",

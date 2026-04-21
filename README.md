@@ -6,7 +6,7 @@
 
 
 
-# 🎙️🧠 Real-time AI speech-to-text for meetings with GPT-4o Transcribe and GPU speaker diarization v2026.4.120
+# 🎙️🧠 P3X Meet Assistant — live meeting transcription with OpenAI GPT-4o Transcribe, GPU speaker diarization, and 10-language support v2026.4.121
 
 
   
@@ -35,7 +35,7 @@ v24.14.1
 [//]: #@corifeus-header:end
 # Meet Assistant
 
-Real-time AI speech-to-text for meetings and conversations. Captures speaker audio, transcribes it live using **OpenAI GPT-4o Transcribe**, and auto-labels each utterance by voice (Speaker 1, Speaker 2, ...). Supports 10 European languages out of the box.
+Real-time AI speech-to-text for meetings and conversations. Captures speaker audio, transcribes it live using **OpenAI GPT-4o Transcribe**, and auto-labels each utterance by voice (`Speaker 1`, `Speaker 2`, ...). Ships with 10 European languages out of the box.
 
 [![PyPI](https://img.shields.io/pypi/v/p3x-meet-assistant.svg?label=PyPI)](https://pypi.org/project/p3x-meet-assistant/)
 [![Python](https://img.shields.io/pypi/pyversions/p3x-meet-assistant.svg)](https://pypi.org/project/p3x-meet-assistant/)
@@ -44,15 +44,7 @@ Real-time AI speech-to-text for meetings and conversations. Captures speaker aud
 ![diarization](https://img.shields.io/badge/speaker%20diarization-GPU-orange)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
-## Links
-
-- **PyPI package**: <https://pypi.org/project/p3x-meet-assistant/>
-- **GitHub repository**: <https://github.com/patrikx3/meet-assistant>
-- **Releases & changelogs**: <https://github.com/patrikx3/meet-assistant/releases>
-- **Issue tracker**: <https://github.com/patrikx3/meet-assistant/issues>
-- **Homepage**: <https://corifeus.com/meet-assistant>
-
-## Quickstart — install from PyPI
+## Quickstart
 
 ```bash
 pip install p3x-meet-assistant
@@ -60,24 +52,30 @@ export OPENAI_API_KEY=sk-...
 p3x-meet-assistant
 ```
 
-Open <http://localhost:8088>. That's the whole thing.
+Open <http://localhost:8088>. That's the whole thing — the wheel bundles the full web UI, so no Node.js, no `git clone`, no build step.
 
-The bundled wheel ships the full web UI — no Node.js, no `git clone`, no build step needed at runtime.
-
-Package on PyPI: <https://pypi.org/project/p3x-meet-assistant/>
-
-## What you get
+## Features
 
 - Live transcription via **OpenAI GPT-4o Transcribe** — the highest-accuracy speech model available today
-- Auto speaker diarization — colored `Speaker 1 / 2 / 3 ...` labels based on voice fingerprint
+- Automatic speaker diarization — colored `Speaker 1 / 2 / 3 ...` labels based on voice fingerprint
 - 10 languages: **English, Hungarian, German, French, Spanish, Italian, Portuguese, Dutch, Polish, Czech**
 - Browser-based UI — Dark / Light theme, adjustable font size, one-click transcript export
-- Captures system audio on Linux (PulseAudio / PipeWire) or any audio in a browser tab via MIC / TAB buttons
-- Distributed as a **pip-installable Python package** — [`p3x-meet-assistant` on PyPI](https://pypi.org/project/p3x-meet-assistant/)
+- System-audio capture on Linux (PulseAudio / PipeWire) or any browser-tab audio via **MIC** / **TAB** buttons
+- Rolling prompt context keeps proper nouns, jargon, and acronyms consistent across chunks
+- Session auto-save to `sessions/YYYY-MM-DD-HH-MM.txt`
+- Distributed as a single **pip-installable Python package**
 
-## Why one language at a time?
+### One language at a time — why
 
-Auto-detect mode (trying two languages and picking the best) produces far more hallucinations than explicitly selecting a single language. Pick the language you're actually hearing, and accuracy jumps dramatically.
+Auto-detect mode (trying two languages and picking the best) produces far more hallucinations than explicitly selecting a single language. Pick what you're actually hearing and accuracy jumps dramatically.
+
+## Links
+
+- **PyPI package**: <https://pypi.org/project/p3x-meet-assistant/>
+- **GitHub repository**: <https://github.com/patrikx3/meet-assistant>
+- **Releases & changelogs**: <https://github.com/patrikx3/meet-assistant/releases>
+- **Issue tracker**: <https://github.com/patrikx3/meet-assistant/issues>
+- **Homepage**: <https://corifeus.com/meet-assistant>
 
 ## Platforms — works on Linux, macOS, and Windows
 
@@ -250,37 +248,7 @@ Want diarization later on an already-installed source checkout? Just add:
 ./venv/bin/pip install resemblyzer
 ```
 
-## API key
-
-You need **one** OpenAI API key. Get it at <https://platform.openai.com/api-keys>.
-
-### Option A — `.env` file (recommended)
-
-```bash
-cp .env.example .env
-# Edit .env and paste your key:  OPENAI_API_KEY=sk-...
-```
-
-The `.env` file is gitignored and auto-loaded on startup.
-
-### Option B — shell environment variable
-
-```bash
-export OPENAI_API_KEY=sk-...
-./meet-assistant-web.py
-```
-
-For a permanent setup, add the `export` line to `~/.bashrc` or `~/.zshrc`.
-
-## Run
-
-```bash
-./meet-assistant-web.py
-```
-
-Open <http://localhost:8088> in your browser. Pick a language from the dropdown, start talking (or open a Google Meet), watch the transcript flow in.
-
-### Command-line options
+## Command-line options
 
 | Flag | Default | Description |
 | :--- | :--- | :--- |
@@ -302,14 +270,6 @@ If the diarizer loaded successfully (check the startup console output), every tr
 
 - Same person gets split across multiple speakers → lower the threshold to ~0.65
 - Different people collapse into one speaker → raise the threshold to ~0.82
-
-## Session auto-save
-
-Every transcript is appended to `sessions/YYYY-MM-DD-HH-MM.txt` as it arrives — nothing to click. A new file is started each time you hit **Clear**, or each time you restart the server. The folder is gitignored by default.
-
-## Rolling prompt context
-
-Each transcription call passes the last ~400 characters of the session as its OpenAI `prompt` hint. This keeps proper nouns, jargon, and acronyms spelled consistently across chunks instead of being re-invented every 5 seconds. Costs nothing extra.
 
 ## How audio is captured
 
@@ -416,7 +376,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.eu](ht
 **🚨 Important Changes:** Any breaking changes are prominently noted in the readme to keep you informed.
 
 
-[**P3X-MEET-ASSISTANT**](https://corifeus.com/meet-assistant) Build v2026.4.120
+[**P3X-MEET-ASSISTANT**](https://corifeus.com/meet-assistant) Build v2026.4.121
 
  [![Donate for PatrikX3 / P3X](https://img.shields.io/badge/Donate-PatrikX3-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 
