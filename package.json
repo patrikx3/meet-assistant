@@ -1,6 +1,6 @@
 {
     "name": "p3x-meet-assistant",
-    "version": "2026.4.122",
+    "version": "2026.4.123",
     "corifeus": {
         "prefix": "p3x-",
         "cdn": true,
@@ -39,7 +39,7 @@
         "@fortawesome/fontawesome-free": "^7.2.0"
     },
     "devDependencies": {
-        "corifeus-builder": "^2026.4.143",
+        "corifeus-builder": "^2026.4.149",
         "grunt": "^1.6.1",
         "vite": "^8.0.8"
     },
